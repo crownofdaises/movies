@@ -3,38 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Letterboxd Movie Linker</title>
+  <title>Random Letterboxd Movie</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #111;
+      color: #eee;
     }
-    input, button {
-      padding: 10px;
-      font-size: 1rem;
+    button {
+      padding: 15px 25px;
+      font-size: 1.2rem;
+      background-color: #03a9f4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
     }
-    input {
-      width: 200px;
+    button:hover {
+      background-color: #0288d1;
     }
   </style>
 </head>
 <body>
-  <h1>Letterboxd Movie Linker</h1>
-  <p>Enter a Letterboxd code (e.g., Lb60):</p>
-  <input type="text" id="codeInput" placeholder="e.g. Lb60" />
-  <button onclick="goToMovie()">Go</button>
+  <h1>🎬 Random Letterboxd Movie</h1>
+  <p>Click the button to visit a random movie on Letterboxd</p>
+  <button onclick="goToRandomMovie()">🎲 Generate</button>
 
   <script>
-    function goToMovie() {
-      const code = document.getElementById('codeInput').value.trim();
-      if (code) {
-        const url = `https://boxd.it/${code}`;
-        window.open(url, '_blank');
-      } else {
-        alert("Please enter a valid code.");
-      }
+    const movieCodes = [
+      'Lb60', // <-- Your requested link
+      'LcR2', 'Kb3o', 'KhXG', 'JzVo', 'Kv5A',
+      'KaRg', 'Lq1S', 'Lixy', 'KfM0', 'LArC',
+      'LcWa', 'KgMa', 'LxCU', 'Laqk', 'Jzbc',
+      'LaD2', 'KYmc'
+    ];
+
+    function goToRandomMovie() {
+      const randomCode = movieCodes[Math.floor(Math.random() * movieCodes.length)];
+      const url = `https://boxd.it/${randomCode}`;
+      window.open(url, '_blank');
     }
   </script>
 </body>
 </html>
+
