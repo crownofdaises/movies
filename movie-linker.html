@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letterboxd Movie Linker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 1rem;
+    }
+    input {
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Letterboxd Movie Linker</h1>
+  <p>Enter a Letterboxd code (e.g., Lb60):</p>
+  <input type="text" id="codeInput" placeholder="e.g. Lb60" />
+  <button onclick="goToMovie()">Go</button>
+
+  <script>
+    function goToMovie() {
+      const code = document.getElementById('codeInput').value.trim();
+      if (code) {
+        const url = `https://boxd.it/${code}`;
+        window.open(url, '_blank');
+      } else {
+        alert("Please enter a valid code.");
+      }
+    }
+  </script>
+</body>
+</html>
